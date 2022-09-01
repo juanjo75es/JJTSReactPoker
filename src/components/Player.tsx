@@ -1,8 +1,7 @@
-import React from "react";
+import React, { ChangeEvent } from 'react';
 import { useState, useEffect, useRef } from "react";
 import { Card } from "./Card";
 import { GameState } from "../logic";
-
 
 export class TPlayer {
     id: number
@@ -37,91 +36,6 @@ export class TPlayer {
     }
 }
 
-type PotProps = {
-    amount: number
-}
-
-export const Pot = (props: PotProps) => {
-    
-    return <div className="Pot">
-                Pot: <img className="chip" src="images/chip.png"></img>{props.amount}
-           </div>
-}
-
-type HandProps = {
-    cards: Array<string>
-}
-
-export const Hand = (props: HandProps) => {
-    
-    const listCards=props.cards.map( card =>{        
-        return <Card key={card} card={card}/>
-    }
-
-    );
-    return <div className="Hand">
-                {listCards}
-           </div>
-}
-
-export const Deck = () => {
-    return <div className="Deck">
-                <img className="reverso reversodeck" src="images/back.png"></img>
-                <img className="reverso reversodeck" src="images/back.png"></img>
-                <img className="reverso reversodeck" src="images/back.png"></img>
-                <img className="reverso reversodeck" src="images/back.png"></img>
-                <img className="reverso reversodeck" src="images/back.png"></img>
-           </div>
-}
-
-type StartProps = {
-    show: boolean,
-    handleClick(): void
-}
-
-export const Start = (props: StartProps) => {
-    if(props.show)
-    return <div className="overlayDiv"
-        style={{backgroundImage: 'url(./images/background.jpg)'}}
-    >
-        <div className="centered">
-            <div>Press to start</div>
-            <div>
-                <a className="myButton" onClick={props.handleClick}>Start</a>
-            </div>
-        </div>
-    </div>
-    return <></>
-}
-
-type VictoryProps = {
-    show: boolean
-}
-
-export const Victory = (props: VictoryProps) => {
-    if(props.show)
-    return <div className="overlayDiv">
-        <div className="centered">
-            <div>You won</div>
-        </div>
-    </div>
-    return <></>
-}
-
-type GameoverProps = {
-    show: boolean
-}
-
-export const Gameover = (props: GameoverProps) => {
-    if(props.show)
-    return <div className="overlayDiv">
-        <div className="centered">
-            <div>Eliminated</div>
-        </div>
-    </div>
-    return <></>
-}
-
 type PanelProps = {
     visible: boolean,
     state: GameState,
@@ -141,9 +55,9 @@ export const Panel = (props: PanelProps) => {
     let raised:number
     let set_raised:any
     [raised,set_raised]=useState(100)
-    const handleChange = (e: React.SyntheticEvent) => {
-        //console.log(e.target.valueAsNumber)
-        set_raised(e.target)
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value)
+        set_raised(e.target.value)
       };
 
     if(props.visible)
@@ -266,8 +180,6 @@ export const Player = (props: PlayerProps) => {
                     {sbet}
                     {sbutton}
                     
-                    
-                
            </div>
 }
 
