@@ -15,10 +15,6 @@ const INITIAL_MONEY = 20000
 function App() {
 
   useEffect(() => {
-    document.title = 'A poker game';
-  });
-  
-  useEffect(() => {
     document.title = 'Poker game by Juanjo';
   });
 
