@@ -1,11 +1,12 @@
 
 import React from "react";
 import './App.css';
-import {TPlayer, Player, Panel} from './components/Player'
+import {TPlayer, Player} from './components/Player'
 import {Start, Victory, Gameover} from './components/Screens'
 import {Hand} from './components/Hand'
 import {Deck} from './components/Deck'
 import {Pot} from './components/Pot'
+import {Panel} from './components/Panel'
 import * as logic from './logic';
 import { useEffect, useRef, useState } from "react";
 
