@@ -12,6 +12,10 @@ import { useEffect, useRef, useState } from "react";
 
 
 function App() {
+
+  useEffect(() => {
+    document.title = 'A poker game';
+  });
   
   const players=[
     new TPlayer(
