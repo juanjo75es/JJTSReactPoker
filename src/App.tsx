@@ -10,14 +10,19 @@ import {Panel} from './components/Panel'
 import * as logic from './logic';
 import { useEffect, useRef, useState } from "react";
 
+const INITIAL_MONEY = 20000
 
 function App() {
   
+  useEffect(() => {
+    document.title = 'Poker game by Juanjo';
+  });
+
   const players=[
     new TPlayer(
       0, 
       'Juanjo', 
-      20000, 
+      INITIAL_MONEY, 
       0, 
       0, 
       false, 
@@ -25,9 +30,9 @@ function App() {
       false,
       'https://miro.medium.com/fit/c/176/176/1*kQwIpdh8bFFQXS5876RV5w.jpeg'
     ),
-    new TPlayer(1, 'Player 2', 20000, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=1'),
-    new TPlayer(2, 'Player 3', 20000, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=2'),
-    new TPlayer(3, 'Player 4', 20000, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=3'),
+    new TPlayer(1, 'Player 2', INITIAL_MONEY, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=1'),
+    new TPlayer(2, 'Player 3', INITIAL_MONEY, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=2'),
+    new TPlayer(3, 'Player 4', INITIAL_MONEY, 0, 0, false, true, false, 'https://i.pravatar.cc/75?kk=3'),
   ]
   return (
     <div className="App" 
